@@ -20,7 +20,10 @@ const getAgents = async (req, res) => {
 
 const postAgent = async (req, res) => {
   try {
-    const agent = await agentModel.create(req.body);
+    const agent = await agentModel.create({...req.body,
+
+      agent_picture: req.file.filename
+    });
 
     res.status(200).json({
       success: true,

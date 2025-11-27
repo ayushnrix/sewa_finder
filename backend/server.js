@@ -7,6 +7,10 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+
+
+
+
 app.use("/api/agents", require("./routes/agentRoutes"))
 
 app.listen(5000, () => {
