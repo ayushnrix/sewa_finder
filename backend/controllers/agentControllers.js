@@ -1,10 +1,12 @@
 const agentModel = require("../models/agentModel");
 
-const getAgents = (req, res) => {
+const getAgents = async (req, res) => {
   try {
+    const agents = await agentModel.find();
     res.status(200).json({
       success: true,
       message: "Agents Fetched Successfully",
+      agents: agents,
     });
   } catch (err) {
     console.log("❌" + err);
